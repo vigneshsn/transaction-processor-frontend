@@ -1,0 +1,12 @@
+<form name="uploadForm" class="row uploadForm">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        </div>
+        <div class="custom-file">
+            <input type="file" (change)="onFileChange($event)" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+    </div>
+    <p *ngIf="errorMessage$ | async as errorMessage" class="text-danger"> {{errorMessage}} </p>
+</form>
