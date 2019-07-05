@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { FileuploadService } from '../fileupload/fileupload.service';
 import { switchMap, map, catchError } from 'rxjs/operators';
-import { FileUploadActionTypes, FileUploadSucceded, FileUploadFailed } from '../actions/action';
+import { FileUploadActionTypes, FileUploadSucceded, FileUploadFailed } from '../actions/fileupload.action';
 import { Action } from '@ngrx/store';
 
 @Injectable()

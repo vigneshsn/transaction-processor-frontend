@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { TransactionStatementResult } from '../models/TransactionStatementResult';
-import { AppState } from '../models/AppState';
+import { FileUploadFacade } from '../facade/fileupload.facade';
 
 @Component({
   selector: 'app-report-table',
@@ -13,8 +12,8 @@ export class ReportTableComponent implements OnInit {
 
   transactionStatement$: Observable<TransactionStatementResult>
   
-  constructor(private store: Store<AppState>) {
-      this.transactionStatement$ = store.pipe(select('fileUpload'), select('transactionStatement'));
+  constructor(private fileUploadFacade: FileUploadFacade) {
+      this.transactionStatement$ = fileUploadFacade.transactionStatement$;
   }
 
   ngOnInit() {

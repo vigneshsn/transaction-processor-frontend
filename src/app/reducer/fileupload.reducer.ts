@@ -1,4 +1,7 @@
-import { FileUploadActions, FileUploadActionTypes } from '../actions/action';
+import { FileUploadActions, FileUploadActionTypes } from '../actions/fileupload.action';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { AppState } from '../models/AppState';
+import { TransactionStatementResult } from '../models/TransactionStatementResult';
 
 export const initialState = {
     transactionStatement: {
@@ -7,6 +10,13 @@ export const initialState = {
     },
     errorMessage: ''
 }
+
+
+export const selectFileUploadState = createFeatureSelector<AppState>('fileUpload');
+
+export const selectTransactionStatement = createSelector(selectFileUploadState, (state: AppState) => state.transactionStatement);
+
+export const selectErrorMessage = createSelector(selectFileUploadState, (state: AppState) => state.errorMessage);
 
 export function fileUploadReducer(state = initialState, action: FileUploadActions) {
 
@@ -23,6 +33,7 @@ export function fileUploadReducer(state = initialState, action: FileUploadAction
             console.log('fileupload failed');
             return {
                 ...state,
+                transactionStatement: initialState.transactionStatement,
                 errorMessage: action.payload
             }
         }
