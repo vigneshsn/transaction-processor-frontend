@@ -1,6 +1,6 @@
-import { Transaction } from './Transaction';
+import { Transaction } from "./Transaction";
 
 export class TransactionStatementResult {
-    duplicates: Transaction[];
-    incorrectBalance: Transaction[]
+  duplicates: Transaction[];
+  incorrectBalances: Transaction[];
 }
