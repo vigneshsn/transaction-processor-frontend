@@ -1,59 +1,70 @@
-<div *ngIf='transactionStatement$ | async as result'>
-    <div>
-        <table title="Duplicate transactions" class="table duplicates-table" id="duplicates-table">
-                <thead>
-                    <tr>
-                        <th>Reference</th>
-                        <th>Iban</th>
-                        <th>Description</th>
-                        <th>Start balance</th>
-                        <th>Mutation</th>
-                        <th>End balance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let transaction of result.duplicates" class="transaction">
-                    <td>{{transaction.id}}</td>
-                    <td>{{transaction.iban}}</td>
-                    <td>{{transaction.description}}</td>
-                    <td>{{transaction.startBalance}}</td>
-                    <td>{{transaction.mutation}}</td>
-                    <td>{{transaction.endBalance}}</td>
-                </tr>
-        
-                <tr *ngIf="result.duplicates.length === 0">
-                    <td colspan="6" class="text-center text-primary">No duplicates</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <table title="Incorrect transactions" class="table" id="incorrectbalances-table">
-
-        <thead>
-            <tr>
-                <th>Reference</th>
-                <th>Iban</th>
-                <th>Description</th>
-                <th>Start balance</th>
-                <th>Mutation</th>
-                <th>End balance</th>
-            </tr>
-        </thead>
-        <tbody>
-
-        <tr *ngFor="let transaction of result.incorrectBalances" class="transaction">
-            <td>{{transaction.id}}</td>
-            <td>{{transaction.iban}}</td>
-            <td>{{transaction.description}}</td>
-            <td>{{transaction.startBalance}}</td>
-            <td>{{transaction.mutation}}</td>
-            <td>{{transaction.endBalance}}</td>
+<div *ngIf="transactionStatement$ | async as result">
+  <div>
+    <table
+      title="Duplicate transactions"
+      class="table duplicates-table"
+      id="duplicates-table"
+    >
+      <thead>
+        <tr>
+          <th>Reference</th>
+          <th>Iban</th>
+          <th>Description</th>
+          <th>Start balance</th>
+          <th>Mutation</th>
+          <th>End balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of result.duplicates" class="transaction">
+          <td>{{ transaction.id }}</td>
+          <td>{{ transaction.iban }}</td>
+          <td>{{ transaction.description }}</td>
+          <td>{{ transaction.startBalance }}</td>
+          <td>{{ transaction.mutation }}</td>
+          <td>{{ transaction.endBalance }}</td>
         </tr>
 
-        <tr *ngIf="result.incorrectBalances.length === 0">
-            <td colspan="6" class="text-center text-primary">No incorrect transactions</td>
+        <tr *ngIf="result.duplicates!.length === 0">
+          <td colspan="6" class="text-center text-primary">No duplicates</td>
         </tr>
-        </tbody>
+      </tbody>
     </table>
+  </div>
+
+  <table
+    title="Incorrect transactions"
+    class="table"
+    id="incorrectbalances-table"
+  >
+    <thead>
+      <tr>
+        <th>Reference</th>
+        <th>Iban</th>
+        <th>Description</th>
+        <th>Start balance</th>
+        <th>Mutation</th>
+        <th>End balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let transaction of result.incorrectBalances"
+        class="transaction"
+      >
+        <td>{{ transaction.id }}</td>
+        <td>{{ transaction.iban }}</td>
+        <td>{{ transaction.description }}</td>
+        <td>{{ transaction.startBalance }}</td>
+        <td>{{ transaction.mutation }}</td>
+        <td>{{ transaction.endBalance }}</td>
+      </tr>
+
+      <tr *ngIf="result.incorrectBalances!.length === 0">
+        <td colspan="6" class="text-center text-primary">
+          No incorrect transactions
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
