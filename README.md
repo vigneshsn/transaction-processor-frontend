@@ -6,9 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Nodejs version 10.16.0 or greater
 
 #Technologies used
-Angular
-ngrx for state management.
-rxjs
+* Angular
+* ngrx for state management.
+* rxjs
 
 #How to run
 
