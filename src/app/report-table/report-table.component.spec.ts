@@ -52,11 +52,11 @@ describe("ReportTableComponent", () => {
     expect(incorrectBalanceTransactionTable).toBeDefined();
     expect(
       duplicateTransactionTable.querySelector("td.text-primary").textContent
-    ).toBe("No duplicates");
+    ).toContain("No duplicates");
     expect(
       incorrectBalanceTransactionTable.querySelector("td.text-primary")
         .textContent
-    ).toBe("No incorrect transactions");
+    ).toContain("No incorrect transactions");
   });
 
   it("should show duplicate and incorrect balance transactions and default message should not be shown", () => {
